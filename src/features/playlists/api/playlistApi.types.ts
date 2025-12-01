@@ -34,7 +34,7 @@ export type PlaylistAttributes = {
     currentUserReaction: CurrentUserReaction
 }
 
-export type PlaylistResourse = {
+export type PlaylistData = {
     id: string;
     type: string;
     attributes: PlaylistAttributes
@@ -47,8 +47,8 @@ export type PlaylistsMeta = {
     pagesCount: number
 }
 
-export type PlaylistData = {
-    data: PlaylistResourse[];
+export type PlaylistResponse = {
+    data: PlaylistData[];
     meta: PlaylistsMeta
 }  
 
@@ -61,4 +61,9 @@ export type FetchPlaylistsArgs = {
     tagsIds?: string[];
     userId?: string;
     trackId?: string
+}
+
+export type CreatePlaylistRequest = {
+    title: string;
+    description: string
 }

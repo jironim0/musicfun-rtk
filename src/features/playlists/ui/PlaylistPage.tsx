@@ -1,4 +1,6 @@
 import { useFetchPlaylistsQuery } from "../api/playlistsApi"
+import { CreatePlaylistForm } from "./CreatePlaylistForm/CreatePlaylistForm"
+import s from './style.module.css'
 
 export function PlaylistPage(){
 
@@ -7,15 +9,19 @@ export function PlaylistPage(){
     if(isLoading) return <h1>Spiner...</h1>
 
     return (
-        <>
-            <div>PlaylistPage</div>
-            <div>
+        <div className={s.container}>
+            
+            <h1>PlaylistPage</h1>
+
+            <CreatePlaylistForm/>
+            
+            <div className={s.items}>
                 {data?.data.map((playlist) => (
-                    <div key={playlist.id}>{playlist.attributes.title}</div>
+                    <div className={s.item} key={playlist.id}>{playlist.attributes.title}</div>
                 ))
                 }
             </div>
-        </>
+        </div>
 
     )
 }
