@@ -6,7 +6,7 @@ import type { PlaylistData } from "../../api/playlistApi.types";
 interface EditePlaylistFromProps {
   playlist: PlaylistData;
   playlistId: string;
-  onEditCancel: () => void; // ← Колбек для закрытия формы
+  onEditCancel: () => void;
 }
 
 export function EditePlaylistFrom({ 
@@ -32,7 +32,7 @@ export function EditePlaylistFrom({
             description: values.description,
             tagIds: playlist.attributes.tags?.map(tag => tag.id) || []
           }
-        }).unwrap(); // ← Не забудьте unwrap()
+        }).unwrap();
         
         resetForm({
           values: {
@@ -41,7 +41,7 @@ export function EditePlaylistFrom({
           }
         });
         
-        onEditCancel(); // ← Закрываем форму после успешного обновления
+        onEditCancel();
         
       } catch (error) {
         console.log("Update error:", error);
@@ -67,14 +67,13 @@ export function EditePlaylistFrom({
           onChange={formik.handleChange}
         />
         
-        {/* Кнопки обновления и отмены */}
         <button type="submit" disabled={formik.isSubmitting}>
           {formik.isSubmitting ? "Updating..." : "Update"}
         </button>
         
         <button 
           type="button" 
-          onClick={onEditCancel} // ← Кнопка отмены
+          onClick={onEditCancel}
         >
           Cancel
         </button>

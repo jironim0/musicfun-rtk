@@ -44,7 +44,7 @@ export function PlaylistPage() {
                 <EditePlaylistFrom
                   playlist={playlist}
                   playlistId={playlist.id}
-                  onEditCancel={stopEditing} // ← Передаем функцию закрытия
+                  onEditCancel={stopEditing}
                 />
               ) : (
                 <div>
