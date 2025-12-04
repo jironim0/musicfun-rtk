@@ -36,12 +36,12 @@ export function CreatePlaylistForm () {
         <form onSubmit={formik.handleSubmit} className={s.container}>
             <div>
                 <input className={s.input} id='title' name='title' type="text" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.title}/>
-                {formik.touched.title && formik.errors.title ? (<div>{formik.errors.title}</div>) : null}
+                {formik.touched.title && formik.errors.title ? (<div className={s.error}>{formik.errors.title}</div>) : null}
             </div>
 
             <div>
                 <input className={s.input} id='description' name='description' type="text" onChange={formik.handleChange} value={formik.values.description}/>
-                {formik.touched.title && formik.errors.description ? (<div>{formik.errors.description}</div>) : null}
+                {formik.touched.title && formik.errors.description ? (<div className={s.error}>{formik.errors.description}</div>) : null}
             </div>
 
             <button className={s.button} type='submit'>Create Playlist</button>

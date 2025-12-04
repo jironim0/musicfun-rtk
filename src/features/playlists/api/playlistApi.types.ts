@@ -28,7 +28,7 @@ export type PlaylistAttributes = {
     order: number;
     user: User;
     images: Image;
-    tags: Tag;
+    tags: Tag[];
     likesCount: number;
     dislikesCount: number;
     currentUserReaction: CurrentUserReaction
@@ -66,4 +66,10 @@ export type FetchPlaylistsArgs = {
 export type CreatePlaylistRequest = {
     title: string;
     description: string
+}
+
+export type UpdatePlaylistArgs = {
+    title: string;
+    description: string;
+    tagIds: string[]
 }
